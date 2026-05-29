@@ -1,82 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adnan Future Build | AI Prompts</title>
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- SEO Optimization -->
+    <title>Adnan Future Build | Professional AI Prompts & Tutorials</title>
+    <meta name="description" content="Discover, copy, and unleash the power of Artificial Intelligence with our professionally curated collection of ChatGPT, Midjourney, and advanced AI prompts.">
+    <meta name="keywords" content="AI Prompts, ChatGPT, Midjourney, AI Tutorials, Adnan Future Build, Artificial Intelligence, Prompt Engineering">
+    <meta name="author" content="Adnan Future Build">
+    <meta property="og:title" content="Adnan Future Build | Top AI Prompts">
+    <meta property="og:description" content="Explore and copy the best AI prompts to elevate your workflow and creativity. Join our community today.">
+    <meta property="og:image" content="banner.png">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts & Icons (Outfit for Headings, Plus Jakarta Sans for Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* Theme Variables */
         :root {
+            /* Dark Theme (Default) */
             --bg: #0F172A;
             --bg-secondary: #1E293B;
             --primary: #7C3AED;
             --primary-hover: #6D28D9;
+            --primary-shadow: #4C1D95;
             --accent: #06B6D4;
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
             --glass-bg: rgba(30, 41, 59, 0.4);
             --glass-border: rgba(255, 255, 255, 0.08);
+            --card-grad-1: rgba(30,41,59,0.95);
+            --card-grad-2: rgba(30,41,59,0.5);
+            --prompt-bg: rgba(0, 0, 0, 0.5);
+            --prompt-text: #A5B4FC;
+            --input-bg: rgba(15, 23, 42, 0.6);
+            --input-text: #FFFFFF;
             --success: #10B981;
             --danger: #EF4444;
+            --glow-1: rgba(124, 58, 237, 0.15);
+            --glow-2: rgba(6, 182, 212, 0.15);
+            --glass-btn-bg: rgba(255, 255, 255, 0.05);
+            --glass-btn-shadow: rgba(0, 0, 0, 0.3);
+            --nav-bg: rgba(15, 23, 42, 0.85);
+            --shimmer: linear-gradient(90deg, rgba(255,255,255,0.02) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.02) 75%);
         }
+
+        [data-theme="light"] {
+            /* Light Theme */
+            --bg: #F8FAFC;
+            --bg-secondary: #FFFFFF;
+            --primary: #6D28D9;
+            --primary-hover: #5B21B6;
+            --primary-shadow: #4C1D95;
+            --accent: #0284C7;
+            --text-main: #0F172A;
+            --text-muted: #475569;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --card-grad-1: rgba(255,255,255,0.98);
+            --card-grad-2: rgba(255,255,255,0.7);
+            --prompt-bg: #F1F5F9;
+            --prompt-text: #3730A3;
+            --input-bg: rgba(255, 255, 255, 0.8);
+            --input-text: #0F172A;
+            --glow-1: rgba(109, 40, 217, 0.08);
+            --glow-2: rgba(2, 132, 199, 0.08);
+            --glass-btn-bg: rgba(0, 0, 0, 0.03);
+            --glass-btn-shadow: rgba(0, 0, 0, 0.1);
+            --nav-bg: rgba(248, 250, 252, 0.85);
+            --shimmer: linear-gradient(90deg, rgba(0,0,0,0.02) 25%, rgba(0,0,0,0.06) 50%, rgba(0,0,0,0.02) 75%);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
             background-color: var(--bg); 
             color: var(--text-main); 
-            font-family: 'Inter', sans-serif; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
             overflow-x: hidden; 
-            /* Animated subtle background glow */
+            transition: background-color 0.4s ease, color 0.4s ease;
             background-image: 
-                radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
+                radial-gradient(at 0% 0%, var(--glow-1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, var(--glow-2) 0px, transparent 50%);
             background-attachment: fixed;
         }
         
-        h1, h2, h3 { font-family: 'Sora', sans-serif; }
+        h1, h2, h3, .logo-text { font-family: 'Outfit', sans-serif; }
         
         /* Animations */
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes shimmer { 0% { background-position: -1000px 0; } 100% { background-position: 1000px 0; } }
         @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-        @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(6, 182, 212, 0); } 100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); } }
+        @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4); } 70% { box-shadow: 0 0 0 14px rgba(6, 182, 212, 0); } 100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); } }
 
-        /* UI Elements */
+        /* General UI */
         .glass { 
             background: var(--glass-bg); 
             backdrop-filter: blur(16px); 
             -webkit-backdrop-filter: blur(16px); 
             border: 1px solid var(--glass-border); 
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
-        
+
+        /* 3D Buttons Upgrade */
         .btn { 
             padding: 12px 28px; 
-            border-radius: 10px; 
+            border-radius: 12px; 
             border: none; 
             cursor: pointer; 
-            font-family: 'Inter', sans-serif; 
-            font-weight: 600; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            font-weight: 700; 
             font-size: 0.95rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            transition: all 0.15s ease; 
             position: relative; 
             overflow: hidden; 
-            color: #fff; 
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            letter-spacing: 0.3px;
         }
-        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--accent)); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(124, 58, 237, 0.5); }
-        .btn.glass:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-2px); }
+        
+        .btn-primary { 
+            background: linear-gradient(135deg, var(--primary), var(--accent)); 
+            color: #fff;
+            box-shadow: 0 6px 0 var(--primary-shadow), 0 10px 20px rgba(124, 58, 237, 0.2);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .btn-primary:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 0 var(--primary-shadow), 0 15px 25px rgba(124, 58, 237, 0.4); 
+            filter: brightness(1.1);
+        }
+        .btn-primary:active { 
+            transform: translateY(6px); 
+            box-shadow: 0 0 0 var(--primary-shadow), 0 2px 5px rgba(124, 58, 237, 0.3); 
+        }
 
-        /* Ripple Effect */
-        .ripple { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.4); transform: scale(0); animation: ripple-anim 0.6s linear; pointer-events: none; }
-        @keyframes ripple-anim { to { transform: scale(4); opacity: 0; } }
+        .btn.glass {
+            background: var(--glass-btn-bg);
+            color: var(--text-main);
+            box-shadow: 0 5px 0 var(--glass-btn-shadow);
+        }
+        .btn.glass:hover {
+            transform: translateY(-2px);
+            background: var(--glass-border);
+            box-shadow: 0 7px 0 var(--glass-btn-shadow);
+        }
+        .btn.glass:active {
+            transform: translateY(5px);
+            box-shadow: 0 0 0 var(--glass-btn-shadow);
+        }
 
         /* Network Status Badge */
         .network-badge {
@@ -86,99 +164,129 @@
             transform: translateX(-50%);
             padding: 10px 24px;
             border-radius: 30px;
-            font-family: 'Sora', sans-serif;
             font-weight: 600;
-            font-size: 0.9rem;
             color: white;
             z-index: 2000;
             transition: top 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
             display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
         .network-badge.show { top: 90px; }
         .network-badge.online { background: var(--success); }
         .network-badge.offline { background: var(--danger); }
 
-        /* Navbar & Logo */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--glass-border); background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); }
-        .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; }
+        /* Navbar & Larger Logo */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--glass-border); background: var(--nav-bg); backdrop-filter: blur(12px); transition: background 0.4s ease; }
+        .logo-wrapper { display: flex; align-items: center; gap: 14px; text-decoration: none; cursor: pointer; }
         .logo-img { 
-            width: 42px; 
-            height: 42px; 
+            width: 64px; /* Increased Logo Size */
+            height: 64px; 
             border-radius: 50%; 
             object-fit: cover; 
-            border: 2px solid var(--accent); 
+            border: 3px solid var(--accent); 
             animation: pulseGlow 3s infinite;
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
         }
-        .logo-text { font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 800; background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.5px; }
+        .logo-text { font-size: 1.6rem; font-weight: 800; background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.5px; }
         
         /* Notices */
-        .notice-bar { background: linear-gradient(90deg, var(--primary), var(--primary-hover)); color: white; padding: 8px; overflow: hidden; display: flex; white-space: nowrap; font-weight: 500; font-size: 0.9rem; }
+        .notice-bar { background: linear-gradient(90deg, var(--primary), var(--primary-hover)); color: white; padding: 10px; overflow: hidden; display: flex; white-space: nowrap; font-weight: 600; font-size: 0.95rem; }
         .notice-content { display: inline-block; animation: marquee 25s linear infinite; }
 
-        /* Hero */
-        .hero { text-align: center; padding: 100px 20px 60px; animation: fadeIn 1s ease; position: relative; }
-        .hero::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background: var(--primary); filter: blur(200px); opacity: 0.2; z-index: -1; pointer-events: none; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 800; letter-spacing: -1px; line-height: 1.2; }
-        .hero p { color: var(--text-muted); font-size: 1.15rem; max-width: 650px; margin: 0 auto 35px; line-height: 1.6; }
+        /* Hero Banner System */
+        .hero { text-align: center; padding: 60px 20px; animation: fadeIn 1s ease; position: relative; }
+        .hero-banner-container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto 40px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border: 1px solid var(--glass-border);
+            position: relative;
+        }
+        .hero-banner {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .hero h1 { font-size: 3.8rem; margin-bottom: 20px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.15; }
+        .hero p { color: var(--text-muted); font-size: 1.2rem; max-width: 650px; margin: 0 auto 35px; line-height: 1.6; }
 
         /* Filters */
         .filters { display: flex; justify-content: center; gap: 12px; margin-bottom: 50px; flex-wrap: wrap; padding: 0 20px; }
-        .filter-btn { background: var(--bg-secondary); border: 1px solid var(--glass-border); color: var(--text-muted); padding: 10px 24px; border-radius: 30px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; font-family: 'Inter'; }
-        .filter-btn.active, .filter-btn:hover { background: var(--primary); border-color: var(--primary); color: white; box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3); }
+        .filter-btn { background: var(--bg-secondary); border: 1px solid var(--glass-border); color: var(--text-muted); padding: 10px 24px; border-radius: 30px; cursor: pointer; transition: all 0.3s ease; font-weight: 600; font-family: 'Plus Jakarta Sans'; }
+        .filter-btn.active, .filter-btn:hover { background: var(--primary); border-color: var(--primary); color: white; box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3); transform: translateY(-2px); }
 
         /* Grid */
         .container { max-width: 1280px; margin: 0 auto; padding: 0 20px 80px; }
-        .section-title { margin-bottom: 40px; font-size: 2rem; border-left: 5px solid var(--accent); padding-left: 15px; font-weight: 700; }
+        .section-title { margin-bottom: 40px; font-size: 2.2rem; border-left: 6px solid var(--accent); padding-left: 18px; font-weight: 800; letter-spacing: -0.5px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 35px; }
+
+        /* Text Utilities */
+        .text-clamp-1 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .text-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .text-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
         /* Cards */
         .card { border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); animation: fadeIn 0.6s ease; display: flex; flex-direction: column; position: relative; }
-        
-        /* Glowing Card Border on Hover */
         .card::after {
             content: ''; position: absolute; inset: 0; border-radius: 20px; padding: 2px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.4s ease; pointer-events: none;
         }
-        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
         .card:hover::after { opacity: 1; }
         
-        .card-img-wrap { overflow: hidden; height: 220px; position: relative; border-bottom: 1px solid var(--glass-border); }
+        .card-img-wrap { overflow: hidden; height: 230px; position: relative; border-bottom: 1px solid var(--glass-border); background: var(--bg-secondary); }
         .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .card:hover .card-img { transform: scale(1.08); }
         
-        .card-body { padding: 25px; flex: 1; display: flex; flex-direction: column; z-index: 2; background: linear-gradient(to top, rgba(30,41,59,0.9), rgba(30,41,59,0.5)); }
-        .card-tag { display: inline-block; background: rgba(6, 182, 212, 0.15); color: var(--accent); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; margin-bottom: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .card-title { font-size: 1.3rem; margin-bottom: 12px; font-weight: 700; line-height: 1.4; }
-        .card-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; flex: 1; line-height: 1.6; }
-        .prompt-box { background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; font-family: 'Courier New', Courier, monospace; color: #A5B4FC; font-size: 0.85rem; margin-bottom: 20px; border: 1px solid var(--glass-border); overflow-x: auto; white-space: pre-wrap; word-wrap: break-word; }
+        .card-body { padding: 28px; flex: 1; display: flex; flex-direction: column; z-index: 2; background: linear-gradient(to top, var(--card-grad-1), var(--card-grad-2)); transition: background 0.4s ease; }
+        .card-tag { display: inline-block; background: rgba(6, 182, 212, 0.15); color: var(--accent); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; margin-bottom: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; }
+        .card-title { font-size: 1.4rem; margin-bottom: 12px; font-weight: 800; line-height: 1.3; }
+        .card-desc { color: var(--text-muted); font-size: 0.98rem; margin-bottom: 20px; flex: 1; line-height: 1.7; }
+        .prompt-box { background: var(--prompt-bg); padding: 18px; border-radius: 12px; font-family: 'Courier New', Courier, monospace; color: var(--prompt-text); font-size: 0.9rem; border: 1px solid var(--glass-border); white-space: pre-wrap; word-wrap: break-word; font-weight: 600; transition: all 0.4s ease; }
 
         /* Forms & Modals */
-        input, textarea { width: 100%; padding: 14px 18px; margin-bottom: 20px; border-radius: 12px; background: rgba(15, 23, 42, 0.6); border: 1px solid var(--glass-border); color: white; font-family: 'Inter'; outline: none; transition: all 0.3s ease; font-size: 1rem; }
-        input:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.15); }
+        input, textarea { width: 100%; padding: 16px 20px; margin-bottom: 22px; border-radius: 12px; background: var(--input-bg); border: 2px solid var(--glass-border); color: var(--input-text); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; outline: none; transition: all 0.3s ease; font-size: 1.05rem; }
+        input:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 5px rgba(6, 182, 212, 0.15); }
         
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; opacity: 0; animation: fadeIn 0.3s forwards; }
-        .modal-content { width: 90%; max-width: 450px; padding: 40px; border-radius: 24px; position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
-        .close-modal { position: absolute; top: 20px; right: 20px; color: var(--text-muted); cursor: pointer; font-size: 1.4rem; transition: color 0.3s; }
-        .close-modal:hover { color: white; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); z-index: 1000; justify-content: center; align-items: center; opacity: 0; animation: fadeIn 0.3s forwards; }
+        .modal-content { width: 90%; max-width: 480px; padding: 45px; border-radius: 28px; position: relative; box-shadow: 0 30px 60px -15px rgba(0,0,0,0.4); background: var(--bg-secondary); border: 1px solid var(--glass-border); }
+        .close-modal { position: absolute; top: 25px; right: 25px; color: var(--text-muted); cursor: pointer; font-size: 1.6rem; transition: color 0.3s; }
+        .close-modal:hover { color: var(--danger); }
+
+        /* Prompt Detail Modal Enhancements */
+        .modal-content.large { max-width: 850px; width: 95%; max-height: 90vh; overflow-y: auto; padding: 35px; display: flex; flex-direction: column; gap: 24px; }
+        #modalImg { width: 100%; max-height: 380px; object-fit: contain; border-radius: 20px; background: rgba(0,0,0,0.1); border: 1px solid var(--glass-border); }
+        #modalPrompt { width: 100%; height: 260px; resize: vertical; background: var(--prompt-bg); color: var(--prompt-text); font-family: 'Courier New', Courier, monospace; font-weight: 600; border-radius: 16px; padding: 20px; border: 2px solid var(--glass-border); line-height: 1.6; font-size: 1rem; outline: none; margin-bottom: 0; transition: all 0.4s ease; }
+        #modalPrompt:focus { border-color: var(--accent); }
+        #modalPrompt::-webkit-scrollbar { width: 10px; }
+        #modalPrompt::-webkit-scrollbar-track { background: var(--bg-secondary); border-radius: 5px; }
+        #modalPrompt::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; border: 2px solid var(--bg-secondary); }
 
         /* Video Section */
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; margin-bottom: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
         /* Toast */
-        #toast { position: fixed; bottom: -80px; left: 50%; transform: translateX(-50%); background: var(--bg-secondary); border: 1px solid var(--glass-border); color: #fff; padding: 14px 28px; border-radius: 30px; font-weight: 500; transition: bottom 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); z-index: 2000; box-shadow: 0 10px 25px rgba(0,0,0,0.5); display: flex; align-items: center; gap: 12px; }
+        #toast { position: fixed; bottom: -80px; left: 50%; transform: translateX(-50%); background: var(--bg-secondary); border: 2px solid var(--glass-border); color: var(--text-main); padding: 16px 32px; border-radius: 30px; font-weight: 700; transition: bottom 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); z-index: 2000; box-shadow: 0 15px 30px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 14px; }
         #toast.show { bottom: 40px; }
-        #toast i { color: var(--accent); font-size: 1.2rem; }
+        #toast i { color: var(--accent); font-size: 1.4rem; }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.6rem; }
             .grid { grid-template-columns: 1fr; }
-            nav { flex-direction: column; gap: 15px; padding: 20px; }
+            nav { flex-direction: column; gap: 20px; padding: 20px; }
+            .modal-content.large { padding: 25px; }
+            .logo-img { width: 56px; height: 56px; }
         }
     </style>
 </head>
@@ -194,8 +302,6 @@
 
     <!-- Navbar -->
     <nav>
-        <!-- Custom Logo Implementation -->
-        <!-- Prioritizes 'adnan.png', falls back to YouTube avatar gracefully -->
         <div class="logo-wrapper" onclick="window.scrollTo({top:0, behavior:'smooth'})">
             <img src="adnan.png" 
                  onerror="this.onerror=null; this.src='https://yt3.googleusercontent.com/34VS0wrNlXrxz9YK-uaWpzy9WFzOx7O58R6QhdCd5jsIC5AkgSzY18YBtlqrrTvVfIVp6VX7iQ=s160-c-k-c0x00ffffff-no-rj';" 
@@ -203,7 +309,11 @@
                  class="logo-img">
             <span class="logo-text">Adnan Future Build</span>
         </div>
-        <div style="display: flex; gap: 10px;">
+        <div style="display: flex; gap: 12px;">
+            <!-- Light/Dark Mode Toggle -->
+            <button id="themeToggle" class="btn glass" style="padding: 10px 16px; border-radius: 50%; font-size: 1.1rem;" title="Toggle Light/Dark Theme">
+                <i class="fas fa-sun"></i>
+            </button>
             <button class="btn btn-primary" onclick="openModal('signupModal')"><i class="fas fa-user-plus"></i> Join</button>
             <button class="btn glass" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</button>
         </div>
@@ -211,10 +321,15 @@
 
     <!-- Hero -->
     <header class="hero">
+        <!-- New Banner Image Upload Section -->
+        <div class="hero-banner-container">
+            <img src="banner.png" alt="Adnan Future Build Banner" class="hero-banner" onerror="this.parentElement.style.display='none'">
+        </div>
+        
         <h1>Discover Top AI Prompts</h1>
         <p>Explore, copy, and unleash the power of Artificial Intelligence with our professionally curated collection of prompts and video tutorials.</p>
-        <button class="btn btn-primary" style="font-size: 1.1rem; padding: 14px 32px;" onclick="document.getElementById('prompts').scrollIntoView({behavior: 'smooth'})">
-            Explore Prompts <i class="fas fa-arrow-right"></i>
+        <button class="btn btn-primary" style="font-size: 1.15rem; padding: 16px 36px; margin-top: 10px;" onclick="document.getElementById('prompts').scrollIntoView({behavior: 'smooth'})">
+            Explore Prompts <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
         </button>
     </header>
 
@@ -230,9 +345,9 @@
         <h2 class="section-title" id="prompts">Trending Prompts</h2>
         <div class="grid" id="promptsGrid">
             <!-- Professional Shimmer Loading -->
-            <div class="glass card" style="height: 480px; animation: shimmer 2s infinite linear; background: linear-gradient(90deg, rgba(255,255,255,0.02) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.02) 75%); background-size: 400% 100%;"></div>
-            <div class="glass card" style="height: 480px; animation: shimmer 2s infinite linear; background: linear-gradient(90deg, rgba(255,255,255,0.02) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.02) 75%); background-size: 400% 100%;"></div>
-            <div class="glass card" style="height: 480px; animation: shimmer 2s infinite linear; background: linear-gradient(90deg, rgba(255,255,255,0.02) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.02) 75%); background-size: 400% 100%;"></div>
+            <div class="glass card" style="height: 480px; animation: shimmer 2s infinite linear; background: var(--shimmer); background-size: 400% 100%;"></div>
+            <div class="glass card" style="height: 480px; animation: shimmer 2s infinite linear; background: var(--shimmer); background-size: 400% 100%;"></div>
+            <div class="glass card" style="height: 480px; animation: shimmer 2s infinite linear; background: var(--shimmer); background-size: 400% 100%;"></div>
         </div>
 
         <br><br><br>
@@ -240,34 +355,51 @@
         <!-- Video Tutorials Section -->
         <h2 class="section-title">AI Tutorials</h2>
         <div class="grid" id="videosGrid">
-             <p style="color: var(--text-muted); font-size: 1.1rem;">No videos available currently.</p>
+             <p style="color: var(--text-muted); font-size: 1.1rem; font-weight: 500;">No videos available currently.</p>
         </div>
 
         <br><br><br>
 
         <!-- Contact Section -->
         <h2 class="section-title" id="contact">Feedback & Contact</h2>
-        <div class="glass" style="padding: 40px; border-radius: 24px; max-width: 650px; margin: 0 auto; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+        <div class="glass" style="padding: 45px; border-radius: 28px; max-width: 700px; margin: 0 auto; background: var(--bg-secondary);">
             <form id="contactForm">
-                <input type="text" id="contactName" placeholder="Your Name" required>
-                <input type="email" id="contactEmail" placeholder="Your Email" required>
-                <textarea id="contactMessage" rows="5" placeholder="Write your message here..." required></textarea>
-                <button type="submit" class="btn btn-primary w-100" style="width: 100%; font-size: 1.1rem;"><i class="fas fa-paper-plane"></i> Send Message</button>
+                <input type="text" id="contactName" placeholder="Your Full Name" required>
+                <input type="email" id="contactEmail" placeholder="Your Email Address" required>
+                <textarea id="contactMessage" rows="5" placeholder="Write your feedback or message here..." required></textarea>
+                <button type="submit" class="btn btn-primary w-100" style="width: 100%; font-size: 1.15rem; padding: 16px;"><i class="fas fa-paper-plane"></i> Send Message</button>
             </form>
         </div>
     </main>
 
     <!-- Signup Modal -->
     <div id="signupModal" class="modal">
-        <div class="glass modal-content">
+        <div class="modal-content">
             <i class="fas fa-times close-modal" onclick="closeModal('signupModal')"></i>
-            <h2 style="margin-bottom: 25px; text-align: center; font-size: 1.8rem;">Join Our Community</h2>
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 25px;">Get access to exclusive AI prompts directly to your inbox.</p>
+            <h2 style="margin-bottom: 20px; text-align: center; font-size: 2rem; color: var(--text-main);">Join Our Community</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px; font-size: 1.1rem;">Get access to exclusive AI prompts sent directly to your inbox.</p>
             <form id="signupForm">
                 <input type="text" id="signupName" placeholder="Full Name" required>
                 <input type="email" id="signupEmail" placeholder="Email Address" required>
-                <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem;"><i class="fas fa-rocket"></i> Sign Up Now</button>
+                <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.15rem; padding: 16px;"><i class="fas fa-rocket"></i> Sign Up Now</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Full Prompt Details Modal -->
+    <div id="promptModal" class="modal">
+        <div class="modal-content large">
+            <i class="fas fa-times close-modal" onclick="closeModal('promptModal')"></i>
+            <img id="modalImg" src="" alt="Prompt Image" onerror="this.src='https://yt3.googleusercontent.com/34VS0wrNlXrxz9YK-uaWpzy9WFzOx7O58R6QhdCd5jsIC5AkgSzY18YBtlqrrTvVfIVp6VX7iQ=s160-c-k-c0x00ffffff-no-rj'">
+            <div style="margin-top: -10px;">
+                <span id="modalCategory" class="card-tag"></span>
+                <h2 id="modalTitle" style="margin: 10px 0 15px; font-size: 2rem; font-weight: 800; color: var(--text-main);"></h2>
+                <p id="modalDesc" style="color: var(--text-muted); line-height: 1.7; font-size: 1.1rem; font-weight: 500;"></p>
+            </div>
+            <textarea id="modalPrompt" readonly></textarea>
+            <button class="btn btn-primary" id="modalCopyBtn" style="width: 100%; font-size: 1.2rem; padding: 18px;">
+                <i class="fas fa-copy" style="margin-right: 8px;"></i> Copy Full Prompt
+            </button>
         </div>
     </div>
 
@@ -293,14 +425,39 @@
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
 
-        // Network Status Logic 100% Implemented
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const rootElement = document.documentElement;
+        
+        // Load preference
+        if (localStorage.getItem('theme') === 'light') {
+            rootElement.setAttribute('data-theme', 'light');
+            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        } else {
+            rootElement.setAttribute('data-theme', 'dark');
+            themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = rootElement.getAttribute('data-theme');
+            if (currentTheme === 'light') {
+                rootElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                rootElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+
+        // Network Status Logic
         const networkBadge = document.getElementById('networkStatus');
         
         function updateNetworkStatus() {
             if (navigator.onLine) {
                 networkBadge.className = 'network-badge online show';
                 networkBadge.innerHTML = '<i class="fas fa-wifi"></i> Network Online';
-                // Hide after 3.5 seconds
                 setTimeout(() => { networkBadge.classList.remove('show'); }, 3500);
             } else {
                 networkBadge.className = 'network-badge offline show';
@@ -308,14 +465,9 @@
             }
         }
 
-        // Listen for connection changes
         window.addEventListener('online', updateNetworkStatus);
         window.addEventListener('offline', updateNetworkStatus);
-        
-        // Initial Check incase user loads offline
-        if (!navigator.onLine) {
-            updateNetworkStatus();
-        }
+        if (!navigator.onLine) updateNetworkStatus();
 
         // Analytics
         get(ref(db, 'analytics/visits')).then((snapshot) => {
@@ -326,9 +478,18 @@
         // Globals
         let allPrompts = [];
         let allCategories = new Set();
-        
-        // Provided Professional Image/Logo Fallback
         const defaultThumbnail = "https://yt3.googleusercontent.com/34VS0wrNlXrxz9YK-uaWpzy9WFzOx7O58R6QhdCd5jsIC5AkgSzY18YBtlqrrTvVfIVp6VX7iQ=s160-c-k-c0x00ffffff-no-rj";
+
+        // HTML Escaping Utility
+        function escapeHTML(str) {
+            if(!str) return '';
+            return str.toString()
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
 
         // UI Functions
         window.openModal = (id) => { 
@@ -351,7 +512,7 @@
 
         window.copyPrompt = (text) => {
             navigator.clipboard.writeText(text).then(() => {
-                showToast();
+                showToast("Copied Successfully");
                 get(ref(db, 'analytics/promptClicks')).then((snapshot) => {
                     set(ref(db, 'analytics/promptClicks'), (snapshot.val() || 0) + 1);
                 });
@@ -360,6 +521,29 @@
                 showToast("Failed to copy", true);
             });
         }
+
+        // Action Handlers
+        window.copyPromptById = (id) => {
+            const p = allPrompts.find(item => item.id === id);
+            if(p) copyPrompt(p.promptText || '');
+        };
+
+        window.openPromptModal = (id) => {
+            const p = allPrompts.find(item => item.id === id);
+            if(p) {
+                const imageToUse = p.imageUrl ? p.imageUrl : defaultThumbnail;
+                document.getElementById('modalImg').src = imageToUse;
+                document.getElementById('modalCategory').innerText = p.category || 'General';
+                document.getElementById('modalTitle').innerText = p.title || 'Untitled';
+                document.getElementById('modalDesc').innerText = p.description || 'No description available.';
+                document.getElementById('modalPrompt').value = p.promptText || '';
+                
+                const copyBtn = document.getElementById('modalCopyBtn');
+                copyBtn.onclick = () => copyPrompt(p.promptText || '');
+                
+                openModal('promptModal');
+            }
+        };
 
         window.filterPrompts = (category) => {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
@@ -381,29 +565,36 @@
             }
 
             prompts.forEach((p) => {
-                // Determine Image (Applies User Instruction properly)
-                const imageToUse = p.imageUrl ? p.imageUrl : defaultThumbnail;
+                const safeTitle = escapeHTML(p.title || 'Untitled');
+                const safeDesc = escapeHTML(p.description || 'No description');
+                const safePrompt = escapeHTML(p.promptText || '');
+                const safeCategory = escapeHTML(p.category || 'General');
+                
+                const imageToUse = p.imageUrl ? p.imageUrl.replace(/"/g, '&quot;') : defaultThumbnail;
 
-                // Prompt Card
                 const card = document.createElement('div');
                 card.className = 'glass card';
                 card.innerHTML = `
                     <div class="card-img-wrap">
-                        <img src="${imageToUse}" class="card-img" alt="${p.title}" onerror="this.src='${defaultThumbnail}'">
+                        <img src="${imageToUse}" class="card-img" alt="${safeTitle}" onerror="this.src='${defaultThumbnail}'">
                     </div>
                     <div class="card-body">
-                        <div><span class="card-tag">${p.category || 'General'}</span></div>
-                        <h3 class="card-title">${p.title}</h3>
-                        <p class="card-desc">${p.description}</p>
-                        <div class="prompt-box">${p.promptText}</div>
-                        <button class="btn btn-primary" style="width:100%;" onclick='copyPrompt(${JSON.stringify(p.promptText).replace(/'/g, "&apos;")})'>
-                            <i class="fas fa-copy"></i> Copy Prompt
-                        </button>
+                        <div><span class="card-tag">${safeCategory}</span></div>
+                        <h3 class="card-title text-clamp-1">${safeTitle}</h3>
+                        <p class="card-desc text-clamp-2">${safeDesc}</p>
+                        <div class="prompt-box text-clamp-3" style="margin-bottom: 20px; flex-shrink: 0;">${safePrompt}</div>
+                        <div style="display: flex; gap: 12px; margin-top: auto;">
+                            <button class="btn btn-primary" style="flex: 1;" onclick="copyPromptById('${p.id}')">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                            <button class="btn glass" style="flex: 1;" onclick="openPromptModal('${p.id}')">
+                                More <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
                     </div>
                 `;
                 grid.appendChild(card);
 
-                // Video Card (if videoUrl exists)
                 if(p.videoUrl) {
                     videoCount++;
                     const vCard = document.createElement('div');
@@ -413,12 +604,12 @@
                     if(embedUrl.includes('watch?v=')) embedUrl = embedUrl.replace('watch?v=', 'embed/');
                     
                     vCard.innerHTML = `
-                        <div class="card-body" style="padding: 20px;">
+                        <div class="card-body" style="padding: 24px;">
                             <div class="video-container">
-                                <iframe src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe src="${escapeHTML(embedUrl)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
-                            <h3 class="card-title" style="margin-top:15px; margin-bottom:5px;">${p.title}</h3>
-                            <p class="card-desc" style="font-size:0.85rem;">Video Tutorial</p>
+                            <h3 class="card-title text-clamp-1" style="margin-top:20px; margin-bottom:8px;">${safeTitle}</h3>
+                            <p class="card-desc" style="font-size:0.9rem; margin-bottom: 0;">Video Tutorial</p>
                         </div>
                     `;
                     videoGrid.appendChild(vCard);
@@ -445,7 +636,7 @@
             const filterContainer = document.getElementById('categoryFilters');
             filterContainer.innerHTML = `<button class="filter-btn active" onclick="filterPrompts('All')">All</button>`;
             allCategories.forEach(cat => {
-                filterContainer.innerHTML += `<button class="filter-btn" onclick="filterPrompts('${cat}')">${cat}</button>`;
+                filterContainer.innerHTML += `<button class="filter-btn" onclick="filterPrompts('${escapeHTML(cat)}')">${escapeHTML(cat)}</button>`;
             });
 
             renderPrompts(allPrompts);
@@ -488,20 +679,6 @@
                 closeModal('signupModal');
                 e.target.reset();
             });
-        });
-
-        // Universal Ripple Effect
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('.btn')) {
-                let btn = e.target.closest('.btn');
-                let rect = btn.getBoundingClientRect();
-                let ripple = document.createElement('span');
-                ripple.className = 'ripple';
-                ripple.style.left = `${e.clientX - rect.left}px`;
-                ripple.style.top = `${e.clientY - rect.top}px`;
-                btn.appendChild(ripple);
-                setTimeout(() => ripple.remove(), 600);
-            }
         });
     </script>
 </body>
